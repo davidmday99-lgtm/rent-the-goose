@@ -169,7 +169,7 @@
   }
 
   .header-wordmark-art {
-    width: clamp(160px, 45vw, 175px);
+    width: clamp(170px, 48vw, 195px);
     height: auto;
   }
 
@@ -204,7 +204,7 @@
   }
 
   .header-tagline-art {
-    width: 150px;
+    width: min(58vw, 225px);
     height: auto;
   }
 
@@ -236,9 +236,27 @@
 }
 
 @media (max-width: 390px) {
+  .site-header {
+    gap: .45rem .5rem;
+    padding-right: .65rem;
+    padding-left: .65rem;
+  }
+
   .header-goose {
     width: 66px;
     height: 72px;
+  }
+
+  .header-wordmark {
+    margin-left: .3rem;
+  }
+
+  .header-wordmark-art {
+    width: 188px;
+  }
+
+  .header-tagline-art {
+    width: 220px;
   }
 
   .header-name {
