@@ -4,8 +4,8 @@ The source for [RentTheGoose.com](https://rentthegoose.com), a responsive one-pa
 
 ## Local preview
 
-Serve the `dist` directory with any static file server, then open `index.html`.
+Serve the `docs` directory with any static file server, then open `index.html`.
 
 ## Deployment
 
-The production site is published from the `dist` directory through GitHub Pages with the custom domain `RentTheGoose.com`.
+The production site is published from the `docs` directory through GitHub Pages with the custom domain `RentTheGoose.com`.
