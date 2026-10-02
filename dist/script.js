@@ -1,0 +1,53 @@
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#site-nav');
+const wishButtons = [...document.querySelectorAll('.add-button')];
+const wishStatus = document.querySelector('#wish-status');
+const wishList = new Set();
+
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!open));
+  navigation.classList.toggle('open', !open);
+});
+
+navigation.addEventListener('click', () => {
+  menuButton.setAttribute('aria-expanded', 'false');
+  navigation.classList.remove('open');
+});
+
+wishButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const item = button.dataset.item;
+    if (wishList.has(item)) {
+      wishList.delete(item);
+      button.classList.remove('added');
+      button.textContent = 'Add to wish list';
+    } else {
+      wishList.add(item);
+      button.classList.add('added');
+      button.textContent = 'Added ♥';
+    }
+    wishStatus.textContent = wishList.size
+      ? `${wishList.size} ${wishList.size === 1 ? 'favorite' : 'favorites'} saved for your request.`
+      : 'Your wish list is empty.';
+  });
+});
+
+document.querySelector('#inquiry-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const selections = [...wishList].join(', ') || 'No collection category selected yet';
+  const subject = encodeURIComponent(`Rental availability: ${data.get('event')} on ${data.get('date')}`);
+  const body = encodeURIComponent(
+    `Hello Silly Goose Vintage Rentals,\n\n` +
+    `My name is ${data.get('name')}. I’m planning a ${data.get('event')} on ${data.get('date')}.\n\n` +
+    `Favorites: ${selections}\n` +
+    `Event details: ${data.get('details') || 'I would love to learn more about availability.'}\n\n` +
+    `Please reply to: ${data.get('email')}`
+  );
+  document.querySelector('#form-note').textContent = 'Opening your email app so you can choose the recipient and review your request.';
+  document.querySelector('#form-note').classList.add('success');
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+});
+
+document.querySelector('#year').textContent = new Date().getFullYear();
