@@ -25,12 +25,16 @@
 }
 
 .header-wordmark {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
   margin-left: .55rem;
-  padding-bottom: .4rem;
-  white-space: nowrap;
+  line-height: 0;
+}
+
+.header-wordmark-art {
+  display: block;
+  width: clamp(230px, 20vw, 285px);
+  height: 100px;
+  object-fit: contain;
 }
 
 .header-name {
@@ -68,15 +72,7 @@
   background: var(--gold);
 }
 
-.header-wordmark::after {
-  content: "♥";
-  position: absolute;
-  right: 50%;
-  bottom: -.18rem;
-  color: var(--rose);
-  font: 600 .78rem/1 var(--display);
-  transform: translateX(50%);
-}
+.header-wordmark::after { content: none; }
 
 .header-divider {
   width: 1px;
@@ -90,6 +86,13 @@
   font: italic 600 clamp(1.05rem, 1.65vw, 1.45rem)/1.05 var(--display);
   text-align: center;
   white-space: nowrap;
+}
+
+.header-tagline-art {
+  display: block;
+  width: clamp(220px, 22vw, 315px);
+  height: 82px;
+  object-fit: contain;
 }
 
 .tagline-heart {
@@ -167,6 +170,11 @@
     margin-left: .25rem;
   }
 
+  .header-wordmark-art {
+    width: clamp(160px, 48vw, 190px);
+    height: 76px;
+  }
+
   .header-name {
     font-size: clamp(2.7rem, 12vw, 3.35rem);
   }
@@ -195,6 +203,11 @@
     justify-self: center;
     font-size: .98rem;
     white-space: normal;
+  }
+
+  .header-tagline-art {
+    width: min(88vw, 315px);
+    height: 54px;
   }
 
   .tagline-heart {
