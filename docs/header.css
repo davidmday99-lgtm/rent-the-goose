@@ -71,10 +71,13 @@
     background: var(--paper);
   }
 
-  .header-art-link,
+  .header-art-link {
+    height: calc(100% - 58px);
+  }
+
   .header-art-link picture,
   .header-art {
-    height: calc(100% - 58px);
+    height: 100%;
   }
 
   .site-header .menu-toggle {
