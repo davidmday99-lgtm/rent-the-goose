@@ -173,9 +173,11 @@
 
   .header-rentals {
     gap: .3rem;
-    margin-top: .62rem;
-    font-size: .64rem;
-    letter-spacing: .15em;
+    margin-top: .82rem;
+    color: #1d352a;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .17em;
   }
 
   .header-rentals::before,
