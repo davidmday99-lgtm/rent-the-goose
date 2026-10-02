@@ -1,115 +1,89 @@
-/* Responsive interpretation of the supplied Silly Goose header artwork. */
+/* The supplied header artwork, cropped only to remove its empty outer canvas. */
 .site-header {
-  height: 116px;
-  gap: clamp(1rem, 2.4vw, 2.5rem);
-  padding: 0 clamp(1.25rem, 4vw, 4rem);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2048 / 420;
+  display: block;
+  padding: 0;
+  overflow: visible;
+}
+
+.header-art-link,
+.header-art-link picture,
+.header-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header-art {
+  object-fit: contain;
+}
+
+.site-header .menu-toggle {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  right: 1.8%;
+  top: 41%;
+  width: 11.7%;
+  height: 27%;
+  padding: 0;
+  border: 0;
+  color: transparent;
+  background: transparent;
+}
+
+.site-header .menu-toggle:focus-visible {
+  outline: 3px solid var(--rose);
+  outline-offset: 3px;
+}
+
+.site-header nav {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  right: 1.5rem;
+  left: auto;
+  min-width: 250px;
+  padding: 1.25rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 35px rgba(38, 57, 47, .16);
+}
+
+.site-header nav.open {
+  display: flex;
 }
 
 .hero {
-  min-height: calc(100vh - 116px);
-}
-
-.header-brand {
-  display: flex;
-  align-items: center;
-  flex: 0 1 auto;
-  min-width: 0;
-}
-
-.header-brand-mark {
-  width: 86px;
-  height: 86px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid rgba(146, 113, 63, .45);
-  background: var(--paper);
-  flex: 0 0 auto;
-}
-
-.header-brand-copy {
-  display: flex;
-  flex-direction: column;
-  margin-left: .85rem;
-  white-space: nowrap;
-}
-
-.header-brand-name {
-  font: italic 700 clamp(2.3rem, 3.8vw, 4rem)/.78 var(--display);
-  letter-spacing: -.05em;
-}
-
-.header-brand-rentals {
-  margin-top: .7rem;
-  font: 600 .72rem/1 var(--sans);
-  letter-spacing: .27em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.header-tagline {
-  margin: 0 auto;
-  padding-left: clamp(1rem, 2vw, 2rem);
-  border-left: 1px solid var(--gold);
-  font: italic 600 clamp(1.05rem, 1.45vw, 1.35rem)/1.05 var(--display);
-  text-align: center;
-  white-space: nowrap;
-}
-
-@media (max-width: 1180px) {
-  .site-header {
-    gap: 1.2rem;
-  }
-
-  .site-header nav {
-    gap: 1.1rem;
-  }
-
-  .header-tagline {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .site-header nav {
-    top: 115px;
-  }
+  min-height: auto;
 }
 
 @media (max-width: 560px) {
   .site-header {
-    height: 82px;
-    gap: .65rem;
-    padding: 0 1rem;
+    aspect-ratio: 1030 / 420;
   }
 
-  .hero {
-    min-height: auto;
+  .site-header .menu-toggle {
+    right: 1rem;
+    top: 50%;
+    width: auto;
+    height: auto;
+    min-height: 44px;
+    padding: .55rem .85rem;
+    transform: translateY(-50%);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: rgba(255, 250, 245, .9);
   }
 
   .site-header nav {
-    top: 81px;
-  }
-
-  .header-brand-mark {
-    width: 58px;
-    height: 58px;
-  }
-
-  .header-brand-copy {
-    margin-left: .55rem;
-  }
-
-  .header-brand-name {
-    font-size: clamp(1.65rem, 8vw, 2rem);
-  }
-
-  .header-brand-rentals {
-    margin-top: .5rem;
-    font-size: .55rem;
-    letter-spacing: .2em;
-  }
-
-  .menu-toggle {
-    flex: 0 0 auto;
+    right: .75rem;
+    left: .75rem;
   }
 }
