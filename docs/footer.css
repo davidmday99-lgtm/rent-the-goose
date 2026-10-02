@@ -1,0 +1,56 @@
+.footer-brand-logo {
+  display: block;
+  width: min(100%, 330px);
+  border: 0;
+  padding: .55rem .8rem;
+  background: #f8f2eb;
+}
+
+.footer-brand-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.collection .section-heading {
+  grid-template-columns: 1fr;
+}
+
+.footer-credit {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+  color: #bfc8c1;
+}
+
+.penguin-credit {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border: 0;
+  text-decoration: none;
+  color: #bfc8c1;
+  font-size: .75rem;
+}
+
+.penguin-credit img {
+  display: block;
+  width: 145px;
+  height: auto;
+  border-radius: .2rem;
+}
+
+@media (max-width: 900px) {
+  .footer-brand-logo {
+    width: min(100%, 290px);
+  }
+
+  .footer-credit {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
