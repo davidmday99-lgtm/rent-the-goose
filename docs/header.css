@@ -18,15 +18,15 @@
 }
 
 .header-goose {
-  width: 92px;
-  height: 102px;
+  width: 108px;
+  height: 110px;
   object-fit: contain;
   flex: 0 0 auto;
 }
 
 .header-wordmark {
   display: block;
-  margin-left: .55rem;
+  margin-left: .8rem;
   line-height: 0;
 }
 
@@ -160,12 +160,12 @@
   }
 
   .header-goose {
-    width: 68px;
-    height: 72px;
+    width: 82px;
+    height: 86px;
   }
 
   .header-wordmark {
-    margin-left: .25rem;
+    margin-left: .45rem;
   }
 
   .header-wordmark-art {
@@ -237,8 +237,8 @@
 
 @media (max-width: 390px) {
   .header-goose {
-    width: 58px;
-    height: 66px;
+    width: 66px;
+    height: 72px;
   }
 
   .header-name {
