@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="mobile.css">
-  <link rel="stylesheet" href="header.css?v=6">
+  <link rel="stylesheet" href="header.css?v=7">
   <style>
     .hero-art img { object-fit: contain; border-radius: 0; }
   </style>
@@ -33,15 +33,16 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="header-art-frame">
-      <a class="header-art-link" href="#top" aria-label="Silly Goose Vintage Rentals home">
-        <picture>
-          <source media="(max-width: 560px)" srcset="assets/header-exact-mobile.png?v=1">
-          <img class="header-art" src="assets/header-exact-desktop.png?v=1" alt="Silly Goose Vintage Rentals — Unique Props for Unforgettable Moments">
-        </picture>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    </div>
+    <a class="header-brand" href="#top" aria-label="Silly Goose Vintage Rentals home">
+      <img class="header-goose" src="assets/header-goose-right.png?v=2" alt="">
+      <span class="header-wordmark">
+        <span class="header-name">Silly Goose <span class="header-heart" aria-hidden="true">♥</span></span>
+        <span class="header-rentals">Vintage Rentals</span>
+      </span>
+    </a>
+    <span class="header-divider" aria-hidden="true"></span>
+    <p class="header-tagline">Unique props for unforgettable moments <span class="tagline-heart" aria-hidden="true">♡</span></p>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">☰&nbsp; Menu</button>
     <nav id="site-nav" aria-label="Main navigation">
       <a href="#collection">The collection</a>
       <a href="#occasions">Occasions</a>
