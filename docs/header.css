@@ -10,7 +10,7 @@
 
 .header-banner-brand {
   display: block;
-  width: min(52vw, 720px);
+  width: min(42vw, 600px);
   height: 112px;
   background: url("assets/header-banner.png?v=1") left center / auto 430px no-repeat;
 }
@@ -21,7 +21,8 @@
   }
 
   .header-banner-brand {
-    width: min(46vw, 570px);
+    width: min(43vw, 470px);
+    background-size: auto 340px;
   }
 }
 
@@ -32,6 +33,7 @@
 
   .header-banner-brand {
     width: min(72vw, 560px);
+    background-size: auto 340px;
   }
 }
 
