@@ -1,0 +1,12 @@
+/* Mobile hero: let the brand artwork introduce the page before the headline. */
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .hero-art {
+    order: -1;
+    width: min(88vw, 360px);
+    margin: 0 auto 1.25rem;
+  }
+}
