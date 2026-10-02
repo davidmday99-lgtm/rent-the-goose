@@ -25,31 +25,57 @@
 }
 
 .header-wordmark {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-left: .55rem;
+  padding-bottom: .4rem;
   white-space: nowrap;
 }
 
 .header-name {
-  font: italic 700 clamp(2.5rem, 4.2vw, 4.15rem)/.78 var(--display);
-  letter-spacing: -.055em;
+  position: relative;
+  font: 400 clamp(3.2rem, 5.2vw, 5.1rem)/.65 "Italianno", cursive;
+  letter-spacing: -.025em;
 }
 
 .header-heart {
-  margin-left: .2em;
+  position: absolute;
+  top: -.42em;
+  right: .08em;
   color: var(--rose);
   font-family: var(--display);
-  font-size: .65em;
-  vertical-align: top;
+  font-size: .48em;
+  transform: rotate(-7deg);
 }
 
 .header-rentals {
-  margin-top: .72rem;
-  font: 600 .72rem/1 var(--sans);
-  letter-spacing: .28em;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-top: .78rem;
+  font: 600 .86rem/1 var(--display);
+  letter-spacing: .2em;
   text-transform: uppercase;
   text-align: center;
+}
+
+.header-rentals::before,
+.header-rentals::after {
+  content: "";
+  width: 2.6rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.header-wordmark::after {
+  content: "♥";
+  position: absolute;
+  right: 50%;
+  bottom: -.18rem;
+  color: var(--rose);
+  font: 600 .78rem/1 var(--display);
+  transform: translateX(50%);
 }
 
 .header-divider {
@@ -67,11 +93,23 @@
 }
 
 .tagline-heart {
-  display: block;
-  margin-top: .22rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  margin-top: .28rem;
   color: var(--rose);
-  font-size: 1.3em;
+  font-size: 1.45em;
   line-height: .75;
+}
+
+.tagline-heart::before,
+.tagline-heart::after {
+  content: "";
+  width: 3rem;
+  height: .65rem;
+  border-top: 2px solid var(--rose);
+  border-radius: 50%;
 }
 
 .site-header .menu-toggle {
@@ -130,13 +168,19 @@
   }
 
   .header-name {
-    font-size: clamp(2rem, 9vw, 2.75rem);
+    font-size: clamp(2.7rem, 12vw, 3.35rem);
   }
 
   .header-rentals {
-    margin-top: .55rem;
-    font-size: .58rem;
-    letter-spacing: .2em;
+    gap: .3rem;
+    margin-top: .62rem;
+    font-size: .64rem;
+    letter-spacing: .15em;
+  }
+
+  .header-rentals::before,
+  .header-rentals::after {
+    width: 1.1rem;
   }
 
   .header-divider {
@@ -152,8 +196,16 @@
   }
 
   .tagline-heart {
-    display: inline;
-    margin: 0 0 0 .35rem;
+    display: inline-flex;
+    margin: 0 0 0 .4rem;
+    font-size: 1.2em;
+    vertical-align: middle;
+  }
+
+  .tagline-heart::before,
+  .tagline-heart::after {
+    width: 1.35rem;
+    height: .45rem;
   }
 
   .site-header .menu-toggle {
@@ -177,6 +229,6 @@
   }
 
   .header-name {
-    font-size: 1.85rem;
+    font-size: 2.5rem;
   }
 }
