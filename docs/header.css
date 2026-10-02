@@ -66,17 +66,26 @@
 
 @media (max-width: 560px) {
   .site-header {
-    aspect-ratio: 1030 / 420;
+    height: calc(40.78vw + 58px);
+    aspect-ratio: auto;
+    background: var(--paper);
+  }
+
+  .header-art-link,
+  .header-art-link picture,
+  .header-art {
+    height: calc(100% - 58px);
   }
 
   .site-header .menu-toggle {
     right: 1rem;
-    top: 50%;
+    top: auto;
+    bottom: 7px;
     width: auto;
     height: auto;
     min-height: 44px;
     padding: .55rem .85rem;
-    transform: translateY(-50%);
+    transform: none;
     border: 1px solid var(--ink);
     color: var(--ink);
     background: rgba(255, 250, 245, .9);
