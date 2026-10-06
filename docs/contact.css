@@ -317,17 +317,17 @@
 /* Full-width business card: artwork left, clickable contact details right. */
 .contact-info-column {
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 .contact-form {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 .contact-person {
   grid-column: 1 / -1;
-  grid-row: 2;
+  grid-row: 1;
   width: 100%;
   min-height: clamp(430px, 42vw, 650px);
   grid-template-columns: 1fr 1fr;
