@@ -57,3 +57,38 @@ if (inquiryForm) {
 
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
+
+const contactPageForm = document.querySelector('#contact-page-form');
+if (contactPageForm) {
+  contactPageForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = contactPageForm.querySelector('button[type="submit"]');
+    const status = document.querySelector('#contact-form-status');
+    const originalText = button.textContent;
+
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    status.textContent = 'Sending your message to Jehnna…';
+    status.className = 'contact-form-status full-width';
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/rentthegoose@gmail.com', {
+        method: 'POST',
+        body: new FormData(contactPageForm),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Form delivery failed');
+
+      contactPageForm.reset();
+      button.textContent = 'Message sent ♥';
+      status.textContent = 'Thank you! Your inquiry was sent directly to Jehnna.';
+      status.className = 'contact-form-status full-width success';
+    } catch (error) {
+      button.disabled = false;
+      button.textContent = originalText;
+      status.textContent = 'We could not send that message. Please call 314-960-1488 or email rentthegoose@gmail.com.';
+      status.className = 'contact-form-status full-width error';
+    }
+  });
+}

@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="header.css?v=16">
   <link rel="stylesheet" href="footer.css?v=4">
-  <link rel="stylesheet" href="contact.css?v=1">
+  <link rel="stylesheet" href="contact.css?v=2">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -40,33 +40,50 @@
 
   <main class="contact-main" id="main">
     <section class="contact-hero">
-      <div class="contact-copy">
-        <p class="eyebrow">Let’s connect</p>
-        <h1>Have a question?<br>Talk to <em>Jehnna.</em></h1>
-        <p class="contact-intro">Planning a shower, wedding, birthday, or photo session? Reach out to ask about our vintage pieces, availability, pickup, or delivery.</p>
-      </div>
+      <div class="contact-info-column">
+        <div class="contact-copy">
+          <p class="eyebrow">Let’s connect</p>
+          <h1>Have a question?<br>Talk to <em>Jehnna.</em></h1>
+          <p class="contact-intro">Planning a shower, wedding, birthday, or photo session? Reach out to ask about our vintage pieces, availability, pickup, or delivery.</p>
+        </div>
 
-      <div class="contact-card">
-        <h2>Contact Silly Goose</h2>
-        <dl class="contact-details">
-          <div>
-            <dt>Your contact</dt>
-            <dd>Jehnna Keen</dd>
-          </div>
-          <div>
-            <dt>Phone</dt>
-            <dd><a href="tel:+13149601488">314-960-1488</a></dd>
-          </div>
-          <div>
-            <dt>Email</dt>
-            <dd><a href="mailto:rentthegoose@gmail.com">rentthegoose@gmail.com</a></dd>
-          </div>
-        </dl>
-        <div class="contact-actions">
-          <a class="button button-primary" href="tel:+13149601488">Call Jehnna</a>
-          <a class="button button-secondary" href="mailto:rentthegoose@gmail.com?subject=Silly%20Goose%20Vintage%20Rentals%20inquiry">Send an email</a>
+        <div class="contact-person" aria-label="Contact information">
+          <p class="contact-person-label">Your Silly Goose contact</p>
+          <h2>Jehnna Keen</h2>
+          <a href="tel:+13149601488">314-960-1488</a>
+          <a href="mailto:rentthegoose@gmail.com">rentthegoose@gmail.com</a>
         </div>
       </div>
+
+      <form class="contact-form" id="contact-page-form" action="https://formsubmit.co/rentthegoose@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Rent the Goose website inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://rentthegoose.com/contact.html?sent=1">
+        <input class="form-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="eyebrow">Send a message</p>
+        <h2>Tell us about your event.</h2>
+        <div class="contact-form-grid">
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+          <label>Event date<input name="event_date" type="date"></label>
+          <label class="full-width">Celebration
+            <select name="celebration" required>
+              <option value="">Choose one</option>
+              <option>Baby shower</option>
+              <option>Bridal shower</option>
+              <option>Birthday</option>
+              <option>Wedding</option>
+              <option>Photo session</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="full-width">How can we help?<textarea name="message" rows="5" required placeholder="Tell us what caught your eye and anything you would like Jehnna to know."></textarea></label>
+          <button class="button button-primary full-width" type="submit">Send inquiry</button>
+          <p class="contact-form-status full-width" id="contact-form-status" aria-live="polite">Your message will be sent directly to Jehnna.</p>
+        </div>
+      </form>
     </section>
     <div class="contact-note">Good events start with a Silly Goose.</div>
   </main>
