@@ -329,7 +329,8 @@
   grid-column: 1 / -1;
   grid-row: 1;
   width: 100%;
-  min-height: clamp(430px, 42vw, 650px);
+  min-height: 0;
+  aspect-ratio: 1.75 / 1;
   grid-template-columns: 1fr 1fr;
   margin-top: 0;
   padding: clamp(1.5rem, 3vw, 3rem);
@@ -467,6 +468,7 @@
 
   .contact-person {
     min-height: 520px;
+    aspect-ratio: auto;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -474,6 +476,7 @@
 @media (max-width: 650px) {
   .contact-person {
     min-height: 0;
+    aspect-ratio: auto;
     grid-template-columns: 1fr;
     padding: 1.35rem;
   }
