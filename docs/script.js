@@ -37,21 +37,45 @@ wishButtons.forEach((button) => {
 
 const inquiryForm = document.querySelector('#inquiry-form');
 if (inquiryForm) {
-  inquiryForm.addEventListener('submit', (event) => {
+  inquiryForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    const button = inquiryForm.querySelector('button[type="submit"]');
+    const status = document.querySelector('#form-note');
+    const favorites = document.querySelector('#inquiry-favorites');
+    const originalText = button.textContent;
     const selections = [...wishList].join(', ') || 'No collection category selected yet';
-    const subject = encodeURIComponent(`Rental availability: ${data.get('event')} on ${data.get('date')}`);
-    const body = encodeURIComponent(
-      `Hello Silly Goose Vintage Rentals,\n\n` +
-      `My name is ${data.get('name')}. I’m planning a ${data.get('event')} on ${data.get('date')}.\n\n` +
-      `Favorites: ${selections}\n` +
-      `Event details: ${data.get('details') || 'I would love to learn more about availability.'}\n\n` +
-      `Please reply to: ${data.get('email')}`
-    );
-    document.querySelector('#form-note').textContent = 'Opening your email app so you can choose the recipient and review your request.';
-    document.querySelector('#form-note').classList.add('success');
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    favorites.value = selections;
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    status.textContent = 'Sending your availability request to Jehnna…';
+    status.className = 'form-note full-width';
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/rentthegoose@gmail.com', {
+        method: 'POST',
+        body: new FormData(inquiryForm),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Form delivery failed');
+
+      inquiryForm.reset();
+      wishList.clear();
+      wishButtons.forEach((wishButton) => {
+        wishButton.classList.remove('added');
+        wishButton.textContent = 'Add to wish list';
+      });
+      if (wishStatus) wishStatus.textContent = 'Your wish list is empty.';
+      favorites.value = 'No collection pieces selected yet';
+      button.textContent = 'Request sent ♥';
+      status.textContent = 'Thank you! Your availability request was sent directly to Jehnna.';
+      status.className = 'form-note full-width success';
+    } catch (error) {
+      button.disabled = false;
+      button.textContent = originalText;
+      status.textContent = 'We could not send that request. Please call 314-960-1488 or email rentthegoose@gmail.com.';
+      status.className = 'form-note full-width error';
+    }
   });
 }
 

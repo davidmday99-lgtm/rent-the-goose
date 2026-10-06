@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="footer.css?v=4">
   <style>
     .hero-art img { object-fit: contain; border-radius: 0; }
+    .form-trap { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+    .form-note.error { color: #7d2727; font-weight: 600; }
   </style>
   <script src="script.js" defer></script>
 </head>
@@ -192,16 +194,23 @@
       <div>
         <p class="eyebrow">Let’s make it memorable</p>
         <h2>What are you celebrating?</h2>
-        <p>Prepare a quick availability request. You’ll review the message before sending it through your email app.</p>
+        <p>Send a quick availability request directly to Jehnna. She’ll reply to the email address you provide.</p>
       </div>
-      <form id="inquiry-form">
+      <form id="inquiry-form" action="https://formsubmit.co/rentthegoose@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Rent the Goose availability request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://rentthegoose.com/?sent=1#inquire">
+        <input type="hidden" name="_url" value="https://rentthegoose.com/#inquire">
+        <input type="hidden" name="favorites" id="inquiry-favorites" value="No collection pieces selected yet">
+        <input class="form-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label>Name<input name="name" autocomplete="name" required></label>
         <label>Email<input name="email" type="email" autocomplete="email" required></label>
         <label>Event date<input name="date" type="date" required></label>
         <label>Celebration<select name="event" required><option value="">Choose one</option><option>Baby shower</option><option>Bridal shower</option><option>Birthday</option><option>Wedding</option><option>Photo session</option><option>Something else</option></select></label>
         <label class="full-width">What caught your eye?<textarea name="details" rows="4" placeholder="Tell us about your event, guest count, and favorite pieces."></textarea></label>
-        <button class="button button-primary full-width" type="submit">Prepare my request</button>
-        <p class="form-note full-width" id="form-note" aria-live="polite">No payment is collected here.</p>
+        <button class="button button-primary full-width" type="submit">Send availability request</button>
+        <p class="form-note full-width" id="form-note" aria-live="polite">Your request will be sent directly to Jehnna. No payment is collected here.</p>
       </form>
     </section>
   </main>
