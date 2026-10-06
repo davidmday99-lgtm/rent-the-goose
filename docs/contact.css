@@ -314,6 +314,215 @@
   }
 }
 
+/* Full-width business card: artwork left, clickable contact details right. */
+.contact-info-column {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.contact-form {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.contact-person {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+  min-height: clamp(430px, 42vw, 650px);
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  overflow: hidden;
+}
+
+.contact-card-brand {
+  position: relative;
+  min-height: 100%;
+  padding: 0 clamp(1.5rem, 3vw, 3rem) 0 0;
+  justify-content: flex-end;
+}
+
+.contact-card-goose-wrap {
+  position: absolute;
+  inset: -5% 0 22% -4%;
+  display: grid;
+  place-items: center;
+}
+
+.contact-card-goose-wrap::before {
+  content: "";
+  position: absolute;
+  width: min(88%, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%, #f7d5d0 0 55%, #e6a9a4 56% 58%, transparent 59%);
+}
+
+.contact-card-goose {
+  position: relative;
+  z-index: 1;
+  width: min(86%, 500px);
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 16px 22px rgba(73, 46, 36, .12));
+}
+
+.contact-card-goose-wrap > span {
+  position: absolute;
+  z-index: 2;
+  right: 8%;
+  top: 25%;
+  color: var(--rose);
+  font: 500 clamp(3rem, 6vw, 6rem)/1 var(--display);
+  transform: rotate(-8deg);
+}
+
+.contact-card-wordmark {
+  position: relative;
+  z-index: 3;
+  width: min(96%, 570px);
+  margin: 0 auto .25rem;
+}
+
+.contact-card-brand p {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+  font-size: clamp(.72rem, 1.15vw, 1rem);
+}
+
+.contact-person-details {
+  padding-left: clamp(2rem, 4vw, 4rem);
+}
+
+.contact-person-label {
+  font-size: clamp(.7rem, 1vw, .95rem);
+}
+
+.contact-person h2 {
+  margin: .15rem 0 clamp(1rem, 2vw, 1.8rem);
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  white-space: nowrap;
+}
+
+.contact-person .contact-detail {
+  gap: clamp(.8rem, 1.4vw, 1.25rem);
+  margin-top: clamp(.65rem, 1.2vw, 1.15rem);
+  font: 500 clamp(1.15rem, 2.2vw, 2rem)/1.1 var(--display);
+}
+
+.contact-detail > span {
+  flex: 0 0 clamp(2.7rem, 4vw, 4rem);
+  width: clamp(2.7rem, 4vw, 4rem);
+  height: clamp(2.7rem, 4vw, 4rem);
+  font-size: clamp(1.2rem, 2vw, 1.9rem);
+}
+
+.contact-card-flourish {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: clamp(1rem, 2vw, 1.75rem) 0 .5rem;
+  color: var(--rose);
+}
+
+.contact-card-flourish::before,
+.contact-card-flourish::after {
+  content: "";
+  width: clamp(3.5rem, 8vw, 7rem);
+  height: 1px;
+  background: var(--rose);
+}
+
+.contact-card-flourish span {
+  font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+}
+
+.contact-card-services {
+  margin-top: .25rem;
+  font: 600 clamp(.72rem, 1.2vw, 1.05rem)/1.6 var(--display);
+  text-align: center;
+  letter-spacing: .04em;
+}
+
+.contact-card-services i {
+  padding: 0 .45rem;
+}
+
+.contact-person-signoff {
+  margin-top: clamp(.5rem, 1.2vw, 1rem);
+  font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .contact-info-column,
+  .contact-form,
+  .contact-person {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .contact-person {
+    min-height: 520px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .contact-person {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding: 1.35rem;
+  }
+
+  .contact-card-brand {
+    min-height: 390px;
+    padding: 0 0 1.25rem;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .contact-card-goose-wrap {
+    inset: -4% 0 22%;
+  }
+
+  .contact-card-wordmark {
+    width: min(92%, 330px);
+  }
+
+  .contact-card-brand p {
+    font-size: .68rem;
+  }
+
+  .contact-person-details {
+    padding: 1.5rem .4rem .25rem;
+    border-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-person h2 {
+    font-size: clamp(4.2rem, 20vw, 6rem);
+    white-space: normal;
+  }
+
+  .contact-person .contact-detail {
+    width: 100%;
+    font-size: clamp(1.08rem, 5vw, 1.45rem);
+    text-align: left;
+  }
+
+  .contact-card-flourish {
+    justify-content: center;
+  }
+
+  .contact-person-signoff {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  }
+}
+
 /* Landscape business-card treatment built from live, clickable page elements. */
 .contact-person {
   grid-template-columns: minmax(150px, .9fr) minmax(220px, 1.15fr);
