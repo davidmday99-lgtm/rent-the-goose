@@ -36,18 +36,68 @@
 .contact-person {
   position: relative;
   margin-top: clamp(3rem, 7vw, 5.5rem);
-  padding: 2rem 0 0;
-  border-top: 1px solid var(--gold);
+  padding: clamp(1.3rem, 2.5vw, 2rem);
+  display: grid;
+  grid-template-columns: clamp(110px, 15vw, 165px) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: center;
+  background: rgba(255, 250, 245, .78);
+  border: 2px solid var(--rose);
+  box-shadow: inset 0 0 0 5px var(--ivory), inset 0 0 0 6px rgba(201, 120, 121, .62);
+}
+
+.contact-person::before,
+.contact-person::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--rose);
+  pointer-events: none;
+}
+
+.contact-person::before {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-radius: 14px 0 0;
 }
 
 .contact-person::after {
-  content: "♥";
+  right: 8px;
+  bottom: 8px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-radius: 0 0 14px;
+}
+
+.contact-person-badge {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.contact-person-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 16px rgba(72, 48, 34, .13));
+}
+
+.contact-person-badge span {
   position: absolute;
-  top: 1.5rem;
-  right: .25rem;
+  right: -2px;
+  top: 5%;
   color: var(--rose);
-  font: 500 2.2rem var(--display);
-  transform: rotate(-8deg);
+  font: 600 1.6rem var(--display);
+  transform: rotate(9deg);
+}
+
+.contact-person-details {
+  min-width: 0;
 }
 
 .contact-person-label {
@@ -60,19 +110,55 @@
 }
 
 .contact-person h2 {
-  margin: 0 0 1rem;
-  font: 600 clamp(2.4rem, 4vw, 3.8rem)/1 var(--display);
+  margin: 0 0 .7rem;
+  font: 400 clamp(3.25rem, 5.5vw, 5rem)/.82 "Italianno", cursive;
+  letter-spacing: .01em;
 }
 
-.contact-person a {
-  display: block;
+.contact-person h2 span {
+  color: var(--rose);
+  font: 600 .48em var(--display);
+  vertical-align: top;
+}
+
+.contact-person .contact-detail {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
   width: fit-content;
-  margin-top: .55rem;
+  max-width: 100%;
+  margin-top: .5rem;
   color: var(--ink);
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  text-decoration-color: var(--rose);
-  text-underline-offset: .25em;
+  font-size: clamp(.86rem, 1.3vw, 1.06rem);
+  text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.contact-detail > span {
+  flex: 0 0 1.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--paper);
+  background: var(--rose);
+  font-size: .86rem;
+}
+
+.contact-detail strong {
+  border-bottom: 1px solid rgba(201, 120, 121, .75);
+  font-weight: 500;
+}
+
+.contact-person-signoff {
+  margin: .85rem 0 0;
+  color: var(--rose);
+  font: 400 clamp(1.65rem, 2.5vw, 2.2rem)/1 "Italianno", cursive;
+}
+
+.contact-person-signoff span {
+  font-family: var(--display);
 }
 
 .contact-form {
@@ -201,5 +287,29 @@
 
   .contact-form .full-width {
     grid-column: 1;
+  }
+
+  .contact-person {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .contact-person-label {
+    font-size: .64rem;
+  }
+
+  .contact-person h2 {
+    font-size: 3.1rem;
+  }
+
+  .contact-person .contact-detail {
+    font-size: .82rem;
+  }
+
+  .contact-detail > span {
+    flex-basis: 1.55rem;
+    width: 1.55rem;
+    height: 1.55rem;
   }
 }
