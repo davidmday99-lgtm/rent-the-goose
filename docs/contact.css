@@ -1,0 +1,140 @@
+.contact-main {
+  min-height: calc(100vh - 112px);
+}
+
+.contact-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, .7fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: center;
+  padding: clamp(4rem, 8vw, 7.5rem) clamp(1.25rem, 6vw, 6rem);
+  overflow: hidden;
+}
+
+.contact-copy {
+  max-width: 760px;
+}
+
+.contact-copy h1 {
+  margin: 0;
+  font: 600 clamp(4rem, 8vw, 7.5rem)/.88 var(--display);
+  letter-spacing: -.045em;
+}
+
+.contact-copy h1 em {
+  color: var(--rose);
+  font-weight: 500;
+}
+
+.contact-intro {
+  max-width: 630px;
+  margin: 2rem 0 0;
+  color: #4e5d54;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.contact-card {
+  position: relative;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  background: #ead4cd;
+  border: 1px solid var(--line);
+  box-shadow: 0 22px 55px rgba(72, 48, 34, .1);
+}
+
+.contact-card::before {
+  content: "♥";
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: var(--rose);
+  font: 500 2.4rem var(--display);
+  transform: rotate(-8deg);
+}
+
+.contact-card h2 {
+  margin: 0 0 1.75rem;
+  font: 600 clamp(2.2rem, 4vw, 3.4rem)/1 var(--display);
+}
+
+.contact-details {
+  margin: 0;
+}
+
+.contact-details div {
+  padding: 1.15rem 0;
+  border-top: 1px solid rgba(38, 57, 47, .2);
+}
+
+.contact-details div:last-child {
+  border-bottom: 1px solid rgba(38, 57, 47, .2);
+}
+
+.contact-details dt {
+  margin-bottom: .3rem;
+  color: #66736b;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.contact-details dd {
+  margin: 0;
+  font: 600 clamp(1.25rem, 2vw, 1.65rem) var(--display);
+  overflow-wrap: anywhere;
+}
+
+.contact-details a {
+  text-decoration-color: var(--rose);
+  text-underline-offset: .24em;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+
+.contact-actions .button-secondary {
+  background: transparent;
+}
+
+.contact-note {
+  padding: 1.4rem clamp(1.25rem, 6vw, 6rem);
+  color: var(--paper);
+  background: var(--rose);
+  text-align: center;
+  font: italic 600 clamp(1.2rem, 2vw, 1.6rem) var(--display);
+}
+
+@media (max-width: 860px) {
+  .contact-main {
+    min-height: auto;
+  }
+
+  .contact-hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 3rem;
+  }
+
+  .contact-copy h1 {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    padding-top: 2.4rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .contact-card {
+    padding: 2rem 1.35rem;
+  }
+
+  .contact-actions {
+    display: grid;
+  }
+}
